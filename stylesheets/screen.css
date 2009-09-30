@@ -1,0 +1,17 @@
+body {
+  font-size: 62.5%;
+  font-family: verdana, arial, helvetica;
+}
+
+#wrapper {
+  font-size: 1.2em;
+}
+
+#content {
+  padding: 10px;
+}
+
+#footer {
+  background: #ccc;
+  padding: 10px;
+}
