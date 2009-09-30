@@ -18,7 +18,7 @@ body {
   position: relative;
 }
 
-#content {
+#page {
   padding-bottom: 50px;
   position: relative;
 }
@@ -34,21 +34,35 @@ body {
 </head>
 <body>
   <div id="wrapper">
-    <div id="content">
-      <h1>Sticky Footer Example</h1>
-      <h2>CSS</h2>
-      <script src="http://gist.github.com/197928.js"></script>
-      <h2>HTML</h2>
-      <script src="http://gist.github.com/197930.js"></script>
-      <h3>Some sample content</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor felis quis ligula tempus nec varius ligula tempus. Praesent tellus magna, scelerisque in commodo in, congue eu quam. Cras tempus iaculis tellus ut rutrum. Curabitur quam elit, adipiscing ac vulputate quis, accumsan quis augue. Fusce pretium elit feugiat justo commodo venenatis. Ut dictum venenatis tincidunt. Praesent volutpat odio non risus egestas vulputate suscipit justo pulvinar. Aliquam nec tellus vel purus dapibus pellentesque a consectetur orci. Maecenas non sodales dolor. Sed consequat rutrum ullamcorper. Aliquam erat volutpat. In dapibus nibh ut erat viverra euismod. Nullam scelerisque tincidunt purus, et suscipit nisl aliquet sed. Cras in metus augue, vel mattis magna. Quisque at quam nec nibh mollis dignissim eu sit amet ipsum. Mauris placerat elementum lectus nec vehicula.</p>
-      <p>Suspendisse tortor augue, tempor eget adipiscing eget, pulvinar nec ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sollicitudin rutrum sapien, id tempor nisl suscipit et. Curabitur nec lectus vel leo blandit pulvinar non ut quam. Nam adipiscing odio id ipsum tristique et semper odio consequat. Nunc ultricies congue elit, et tempus neque convallis quis. Etiam auctor accumsan ligula at pharetra. Proin id pharetra nisl. Vestibulum sodales tincidunt odio non sollicitudin. Pellentesque iaculis purus et diam scelerisque ac scelerisque enim sagittis. Curabitur massa arcu, placerat ut tempus et, porttitor id dolor. Cras sed ante sit amet lorem ullamcorper mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce id nulla magna, quis fringilla urna. Proin dapibus nisl id dui suscipit at mollis quam semper. Etiam posuere libero et nibh ornare ornare. Maecenas feugiat congue tincidunt. Pellentesque erat velit, egestas at mollis in, semper vel quam.</p>
-      <p>Phasellus lectus nibh, eleifend at tristique nec, lacinia vel tortor. Aliquam luctus, nisi eget mattis tincidunt, ipsum lorem condimentum leo, sed consectetur libero nulla sit amet ligula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Suspendisse at interdum libero. Fusce quis libero purus, in dapibus nisl. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Etiam ullamcorper placerat purus ut aliquam. Vestibulum turpis tellus, convallis eget volutpat sed, imperdiet a felis. Donec egestas nulla quis dui faucibus faucibus lacinia mi sollicitudin. Praesent eros lacus, bibendum ut fermentum vel, accumsan in mauris. Duis gravida posuere leo molestie egestas. Donec varius iaculis lacus, in dictum sem bibendum ut. Fusce nulla velit, congue et auctor at, tristique et neque. Praesent dignissim diam pellentesque arcu sodales sollicitudin. Vestibulum ullamcorper ligula ut justo suscipit vitae blandit libero auctor. Suspendisse vehicula pellentesque orci ornare semper. Sed ante mauris, suscipit id porttitor nec, gravida eget augue. Cras sagittis urna eget mi vestibulum ultrices eget a magna.</p>
-      <p>Suspendisse ac pellentesque diam. Pellentesque sed aliquam tellus. Nulla hendrerit congue massa, eu ultrices mauris posuere ut. In eu mi in dui interdum gravida sed at risus. Nam ut felis ligula. Aliquam facilisis iaculis pulvinar. Nulla placerat metus eu purus ullamcorper porttitor. Aliquam suscipit massa a dolor consectetur sit amet fringilla turpis suscipit. Aliquam sed est nec nulla venenatis euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In mollis justo a magna sollicitudin sed facilisis purus vulputate. Aliquam luctus rhoncus consectetur. Phasellus ac massa vitae neque tempor tincidunt. Vestibulum odio augue, dignissim ac congue at, consectetur eget libero. Pellentesque interdum ullamcorper magna eu aliquet. Mauris nisi nisi, condimentum a laoreet quis, viverra id tortor. Quisque accumsan metus ac justo convallis tempus. Curabitur sed tellus nec lectus fermentum mattis quis et leo.</p>
-      <p>Aliquam placerat euismod lorem, mollis malesuada augue congue vel. Integer dictum dui non mauris egestas blandit vehicula ante tincidunt. Sed dapibus, arcu consectetur tincidunt bibendum, turpis erat aliquam libero, porttitor ullamcorper odio purus vel magna. Proin ullamcorper adipiscing arcu vitae lobortis. Vestibulum id mi turpis. Cras dignissim diam sed arcu rutrum vitae sagittis mauris mollis. Quisque consequat fermentum purus, et faucibus neque rhoncus vitae. Sed ornare sem sed eros tempus sed sollicitudin metus volutpat. Fusce nisl mi, tincidunt vel pharetra vel, congue ac eros. In suscipit gravida leo hendrerit condimentum. Vestibulum elementum elementum odio, ac iaculis urna fringilla eget. Sed vitae sapien arcu.</p>
+    <div id="page">
+      <div id="header">
+        <h1>Sticky Footer</h1>
+      </div>  
+      <div id="content">
+        <p>The footer on this Web page will always be positioned at the bottom of the viewport unless the content of the page is taller than the viewport, in which case the footer will follow the content.</p>
+        <h2>CSS</h2>
+        <script src="http://gist.github.com/197928.js"></script>
+        <h2>HTML</h2>
+        <script src="http://gist.github.com/197930.js"></script>
+        <h3>Browser Compatibility</h3>
+        <p>Tested in:</p>
+        <ul>
+          <li>Internet Explorer 6</li>
+          <li>Internet Explorer 7</li>
+          <li>Internet Explorer 8</li>
+          <li>Firefox 3.5</li>
+          <li>Safari 4</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor felis quis ligula tempus nec varius ligula tempus. Praesent tellus magna, scelerisque in commodo in, congue eu quam. Cras tempus iaculis tellus ut rutrum. Curabitur quam elit, adipiscing ac vulputate quis, accumsan quis augue. Fusce pretium elit feugiat justo commodo venenatis. Ut dictum venenatis tincidunt. Praesent volutpat odio non risus egestas vulputate suscipit justo pulvinar. Aliquam nec tellus vel purus dapibus pellentesque a consectetur orci. Maecenas non sodales dolor. Sed consequat rutrum ullamcorper. Aliquam erat volutpat. In dapibus nibh ut erat viverra euismod. Nullam scelerisque tincidunt purus, et suscipit nisl aliquet sed. Cras in metus augue, vel mattis magna. Quisque at quam nec nibh mollis dignissim eu sit amet ipsum. Mauris placerat elementum lectus nec vehicula.</p>
+        <p>Suspendisse tortor augue, tempor eget adipiscing eget, pulvinar nec ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sollicitudin rutrum sapien, id tempor nisl suscipit et. Curabitur nec lectus vel leo blandit pulvinar non ut quam. Nam adipiscing odio id ipsum tristique et semper odio consequat. Nunc ultricies congue elit, et tempus neque convallis quis. Etiam auctor accumsan ligula at pharetra. Proin id pharetra nisl. Vestibulum sodales tincidunt odio non sollicitudin. Pellentesque iaculis purus et diam scelerisque ac scelerisque enim sagittis. Curabitur massa arcu, placerat ut tempus et, porttitor id dolor. Cras sed ante sit amet lorem ullamcorper mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce id nulla magna, quis fringilla urna. Proin dapibus nisl id dui suscipit at mollis quam semper. Etiam posuere libero et nibh ornare ornare. Maecenas feugiat congue tincidunt. Pellentesque erat velit, egestas at mollis in, semper vel quam.</p>
+      </div>
     </div>
     <div id="footer">
-      Fixed footer
+      <div class="wrapper">
+        Sticky footer
+      </div>
     </div>
+    <div id="fork"><a href="http://github.com/rumble/rumble.github.com">Fork on GitHub</a></div>
   </div>
 </body>
+</html>

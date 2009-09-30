@@ -1,4 +1,11 @@
+@font-face {
+  font-family: 'ChunkFive';
+  src: url(/fonts/ChunkFive/ChunkFive.otf);
+  src: local('ChunkFive'), local('ChunkFive'), url(/fonts/ChunkFive/ChunkFive.otf) format('opentype');
+}
+
 body {
+  background: yellow;
   font-size: 62.5%;
   font-family: verdana, arial, helvetica;
 }
@@ -8,10 +15,68 @@ body {
 }
 
 #content {
+  line-height: 1.25;
+  padding: 0 10px;
+}
+
+#footer .wrapper {
+  background: #000;
+  color: yellow;
   padding: 10px;
 }
 
-#footer {
-  background: #ccc;
+#content p {
+  margin-bottom: 1em;
+}
+
+#content ul {
+  margin-bottom: 1em;
+}
+
+#content li {
+  list-style-type: disc;
+  margin-left: 25px;
+}
+
+#header h1 {
+  background: black;
+  color: yellow;
+  font-family: 'ChunkFive';
+  font-size: 4em;
+  margin-bottom: 0.25em;
   padding: 10px;
+}
+
+#content h2 {
+  font-family: 'ChunkFive';
+  font-size: 3em;
+  margin: 0.33em 0;
+}
+
+#content h3 {
+  font-family: 'ChunkFive';
+  font-size: 2em;
+  margin: 0.5em 0;
+}
+
+#fork {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+#fork a {
+  background: yellow;
+  color: black;
+  display: block;
+  font-size: 1.5em;
+  font-family: 'ChunkFive';
+  padding: 10px 10px 8px;
+  text-decoration:none;
+  
+  -moz-border-radius: 5px;
+}
+
+#fork a:hover {
+  text-decoration: underline;
 }
