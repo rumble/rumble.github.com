@@ -80,3 +80,7 @@ body {
 #fork a:hover {
   text-decoration: underline;
 }
+
+a {
+  font-weight: bold;
+}
