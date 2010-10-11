@@ -2,9 +2,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Overlay</title>	
-	<style type="text/css">
-	
+  <title>Overlay</title>
+  <style type="text/css">
+
   .overlay {
     position: relative;
   }
@@ -27,6 +27,8 @@
     top: 0;
     width: 100%;
     z-index: 5;
+    /* The following rule hits IE 6 only */
+    _height: expression(this.parentNode.clientHeight+'px');
   }
 
   .overlay-bg .overlay-hd div,
@@ -94,7 +96,7 @@
     _margin-left: -3px;
   }
 
-  .overlay .overlay-ft .overlay-ft-c div {
+  .overlay-bg .overlay-ft .overlay-ft-c div {
     background: transparent url(ft-c.png) repeat-x 0 0;
     height: 20px;
   }
@@ -108,7 +110,7 @@
     width: 100%;
   }
 
-  .overlay .overlay-bd .overlay-bd-l {
+  .overlay-bg .overlay-bd .overlay-bd-l {
     background: transparent url(bd-l.png) repeat-y 0 0;
     float: left;
     height: 100%;
@@ -117,7 +119,7 @@
     _margin-right: -3px;
   }
 
-  .overlay .overlay-bd .overlay-bd-r {
+  .overlay-bg .overlay-bd .overlay-bd-r {
     background: transparent url(bd-r.png) repeat-y 0 0;
     float: right;
     height: 100%;
@@ -126,31 +128,30 @@
     _margin-left: -3px;
   }
 
-  .overlay .overlay-bd .overlay-bd-c{
+  .overlay-bg .overlay-bd .overlay-bd-c{
     height: 100%;
   }
 
-  .overlay .overlay-bd .overlay-bd-c div {
+  .overlay-bg .overlay-bd .overlay-bd-c div {
     background: #fff url(bd-c.png) repeat-x 0 100%;
     height: 100%;
   }
 
+  .overlay-bg .overlay-bd {
+    /* The following rule hits IE 6 only */
+    _height: expression(Math.floor(this.parentNode.clientHeight-(this.nextSibling ? this.nextSibling.clientHeight : 0)-(this.previousSibling ? this.previousSibling.clientHeight : 0))+'px');
+    overflow: hidden;
+  }
 
-  .overlay .overlay-bd .overlay-bd-l,
-  .overlay .overlay-bd .overlay-bd-r,
-  .overlay  .overlay-bd .overlay-bd-c div {
+  .overlay-bg .overlay-bd .overlay-bd-l,
+  .overlay-bg .overlay-bd .overlay-bd-r,
+  .overlay-bg .overlay-bd .overlay-bd-c div {
     /* The following rule hits IE 6 and IE 7 only */
     *height: 10000px;
   }
 
-  .overlay  .overlay-bd {
-    /* The following rule hits IE 6 only */
-    _height: expression(this.parentNode.clientHeight-this.nextSibling.clientHeight-this.previousSibling.clientHeight+'px');
-  }
-  
-  
   /* Following styles are for demonstration purposes */
-  
+
   .overlay {
     left: 50%;
     margin-left: -300px;
@@ -158,30 +159,30 @@
     top: 0;
     width: 600px;
   }
-  
+
   .overlay-hd-r,
   .overlay-hd-l,
   .overlay-ft-r,
   .overlay-ft-l {
     background-color: red !important;
   }
-  
+
   .overlay-hd-c div,
   .overlay-ft-c div{
     background-color: orange !important;
   }
-  
+
   .overlay-bd-r,
   .overlay-bd-l {
     background-color: blue !important;
   }
-  
+
   .overlay-bd-c div {
     background-color: pink !important;
   }
-  
-	
-	</style>
+
+
+  </style>
 </head>
 <body>
   <div class="overlay">
