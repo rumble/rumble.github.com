@@ -65,6 +65,7 @@ body {
           <img src="/images/zoom/1_preview.jpg" height="400" width="300" />
         </div>
         <ul class="zoom-thumbnails">
+          <li><a href="/images/zoom/1_large.jpg"><img src="/images/zoom/1_thumbnail.jpg" height="133" width="100" /></a></li>
           <li><a href="/images/zoom/2_large.jpg"><img src="/images/zoom/2_thumbnail.jpg" height="133" width="100" /></a></li>
           <li><a href="/images/zoom/3_large.jpg"><img src="/images/zoom/3_thumbnail.jpg" height="133" width="100" /></a></li>
           <li><a href="/images/zoom/4_large.jpg"><img src="/images/zoom/4_thumbnail.jpg" height="133" width="100" /></a></li>
@@ -87,7 +88,7 @@ Zoom.prototype = {
       return false;
     }
 
-    this.images = this.element.select('img').map(function(image){
+    this.images = this.element.select('li a img').map(function(image){
       src = image.readAttribute('src');
       return {
         thumbnail : src.replace(/(_)(\w*)(\.\w*)/, '$1thumbnail$3'),
@@ -143,8 +144,6 @@ Zoom.prototype = {
 
   },
   load : function(i){
-    this.loaded = i;
-
     var large = new Image();
     large.onload = this.onLargeLoad.bind(this, large);
     large.src = this.images[i].large;
@@ -190,8 +189,6 @@ Zoom.prototype = {
     });
     if(image){
       var i = this.images.indexOf(image);
-      element.href = this.images[this.loaded].large;
-      element.down('img').src = this.images[this.loaded].thumbnail;
       this.load(i);
     }
   },
