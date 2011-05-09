@@ -17,6 +17,7 @@
       }
 
       img {
+        -ms-interpolation-mode: bicubic;
         display: block;
         width: 100%;
       }
@@ -26,6 +27,7 @@
         position: absolute;
         top: 0;
         width: 100%;
+        _height: expression(this.parentNode.clientHeight+'px');
       }
 
       .text .text-1 {
@@ -34,6 +36,7 @@
         height: 100%;
         #position: relative;
         width: 100%;
+        _height: expression(this.parentNode.clientHeight+'px');
       }
 
       .text .text-2 {
