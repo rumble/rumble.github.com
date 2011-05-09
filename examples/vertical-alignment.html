@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vertical aligned text</title>
+    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" />
+    <style>
+      .greenBorder {border: 1px solid green;} /* just borders to see it */
+
+      .columns {
+        width: 800px;
+      }
+
+      .column {
+        float: left;
+        position: relative;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      .text {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+
+      .text .text-1 {
+        display: table;
+        overflow: hidden;
+        height: 100%;
+        #position: relative;
+        width: 100%;
+      }
+
+      .text .text-2 {
+        display: table-cell;
+        #position: absolute;
+        #top: 50%;
+        vertical-align: middle;
+        width: 100%;
+      }
+
+      .text .text-3 {
+        background: rgb(255, 255, 255);
+        #position: relative;
+        #top: -50%
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class="columns">
+
+      <div class="column" style="width: 50%;">
+        <div class="image">
+          <img src="http://farm1.static.flickr.com/125/317695178_82ade07837_m.jpg">
+        </div>
+        <div class="text">
+          <div class="text-1">
+            <div class="text-2">
+              <div class="text-3">
+                This text is centered in the middle of the image.<br />
+                Even works with multiple lines!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="column" style="width: 50%;">
+        <div class="image">
+          <img src="http://farm1.static.flickr.com/125/317695178_82ade07837_m.jpg">
+        </div>
+        <div class="text">
+          <div class="text-1">
+            <div class="text-2">
+              <div class="text-3">
+                Look at this dashing chap!
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
