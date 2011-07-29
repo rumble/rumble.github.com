@@ -1,0 +1,240 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>Zoom!</title>
+    <meta http-equiv="imagetoolbar" content="false" />
+    <style type="text/css">
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.zoom {
+  float: left;
+}
+
+.zoom img {
+  display: block;
+}
+
+.zoom-cursor {
+  border: 1px solid #fff;
+  height: 150px;
+  width: 200px;
+}
+
+.zoom-preview {
+  float: left;
+}
+
+.zoom-large {
+  height: 300px;
+  width: 400px;
+}
+
+.zoom-thumbnails {
+  clear: both;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.zoom-thumbnails li {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.zoom-thumbnails li a img {
+  border: 0;
+}
+
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="zoom" class="zoom">
+        <div class="zoom-preview">
+          <img src="/images/zoom/1_preview.jpg" height="400" width="300" />
+        </div>
+        <ul class="zoom-thumbnails">
+          <li><a href="/images/zoom/1_large.jpg"><img src="/images/zoom/1_thumbnail.jpg" height="133" width="100" /></a></li>
+          <li><a href="/images/zoom/2_large.jpg"><img src="/images/zoom/2_thumbnail.jpg" height="133" width="100" /></a></li>
+          <li><a href="/images/zoom/3_large.jpg"><img src="/images/zoom/3_thumbnail.jpg" height="133" width="100" /></a></li>
+          <li><a href="/images/zoom/4_large.jpg"><img src="/images/zoom/4_thumbnail.jpg" height="133" width="100" /></a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript" src="/lib/prototype-1.7.js"></script>
+  <script type="text/javascript">
+
+var Zoom = function(){
+  this.initialize.apply(this, arguments);
+};
+
+Zoom.prototype = {
+  initialize : function(element){
+    var src;
+
+    if(!(this.element = $(element))){
+      return false;
+    }
+
+    this.images = this.element.select('li a img').map(function(image){
+      src = image.readAttribute('src');
+      return {
+        thumbnail : src.replace(/(_)(\w*)(\.\w*)/, '$1thumbnail$3'),
+        preview : src.replace(/(_)(\w*)(\.\w*)/, '$1preview$3'),
+        large : src.replace(/(_)(\w*)(\.\w*)/, '$1large$3')
+      }
+    });
+
+    this.ui = {
+      cursor : new Element('div').addClassName('zoom-cursor').setStyle({
+        left : '-5000px',
+        position : 'absolute',
+        top : '-5000px'
+      }),
+      large : new Element('div').addClassName('zoom-large').setStyle({
+        left : '-5000px',
+        overflow : 'hidden',
+        position : 'absolute',
+        top : '-5000px'
+      }),
+      preview : this.element.down('.zoom-preview').setStyle({
+        overflow : 'hidden',
+        position : 'relative'
+      })
+    };
+
+    this.ui.images = {
+      large : new Element('img').setStyle({
+        position : 'absolute'
+      }),
+      preview : this.ui.preview.down('img').setStyle({
+        left : 0,
+        top : 0
+      })
+    };
+
+    this.element.down('.zoom-preview').insert(this.ui.cursor);
+    Element.insert(document.body, this.ui.large.insert(this.ui.images.large));
+
+    this.dimensions = {
+      preview : this.ui.preview.getDimensions(),
+      cursor : this.ui.cursor.getDimensions(),
+      large : this.ui.large.getDimensions()
+    };
+
+
+    this.element.on('click', '.zoom-thumbnails a', this.onClick.bind(this));
+    this.ui.preview.on('mouseenter', this.onMouseEnter.bind(this));
+    this.ui.preview.on('mouseleave', this.onMouseLeave.bind(this));
+    this.ui.preview.on('mousemove', this.onMouseMove.bind(this));
+
+    this.load(0);
+
+  },
+  load : function(i){
+    var large = new Image();
+    large.onload = this.onLargeLoad.bind(this, large);
+    large.src = this.images[i].large;
+
+    var preview = new Image();
+    preview.onload = this.onPreviewLoad.bind(this, preview);
+    preview.src = this.images[i].preview;
+  },
+  onLargeLoad : function(image){
+    this.ui.images.large.src = image.src;
+    this.ui.images.large.height = image.height;
+    this.ui.images.large.width = image.width;
+
+    var width = this.dimensions.cursor.width;
+    var height = this.dimensions.cursor.height;
+
+    var width = (this.dimensions.large.width/image.width)*this.dimensions.preview.width;
+    var height = (this.dimensions.large.height/this.dimensions.large.width)*width;
+
+    this.ui.cursor.setStyle({
+      width: width+'px',
+      height : height+'px'
+    });
+
+    this.dimensions.cursor.width = width;
+    this.dimensions.cursor.height = height;
+
+    this.scale = this.dimensions.large.width/this.dimensions.cursor.width;
+  },
+  onPreviewLoad : function(image){
+    this.ui.images.preview.src = image.src;
+    this.ui.images.preview.height = image.height;
+    this.ui.images.preview.width = image.width;
+
+    this.dimensions.preview.width = image.width;
+    this.dimensions.preview.height = image.height;
+  },
+  onClick : function(e, element){
+    e.stop();
+    var href = element.href;
+    var image = this.images.find(function(img){
+      return href.endsWith(img.large);
+    });
+    if(image){
+      var i = this.images.indexOf(image);
+      this.load(i);
+    }
+  },
+  onMouseEnter : function(e){
+  },
+  onMouseLeave : function(e){
+    this.ui.cursor.setStyle({
+      left : '-5000px',
+      top : '-5000px'
+    });
+    this.ui.large.setStyle({
+      left : '-5000px',
+      top : '-5000px'
+    });
+  },
+  onMouseMove : function(e){
+    var pointer = e.pointer();
+    var position = this.ui.preview.cumulativeOffset();
+    var scroll = document.viewport.getScrollOffsets();
+    position.top = position.top + scroll.top;
+    position.left = position.left+ scroll.left;
+
+    this.ui.large.setStyle({
+      left : position.left+this.dimensions.preview.width+10+'px',
+      top : position.top+scroll.top+'px'
+    });
+
+    var width = this.dimensions.cursor.width;
+    var height = this.dimensions.cursor.height;
+    var left = Math.max(position.left, Math.min(pointer.x-(width/2), this.dimensions.preview.width-width+position.left))-position.left;
+    var top = Math.max(position.top, Math.min(pointer.y-(height/2), this.dimensions.preview.height-height+position.top));
+
+    this.ui.cursor.setStyle({
+      left : left+'px',
+      top : top+'px'
+    });
+
+    this.ui.images.large.setStyle({
+      left : -(left*this.scale)+'px',
+      top : -(top*this.scale)+'px'
+    });
+  }
+}
+
+
+var zoom = new Zoom('zoom');
+
+  </script>
+</html>

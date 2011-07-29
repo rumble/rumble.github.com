@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vertical aligned text</title>
+    <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />
+    <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" />
+    <style>
+
+      .columns {
+        width: 800px;
+      }
+
+      .column {
+        float: left;
+        position: relative;
+      }
+
+      img {
+        -ms-interpolation-mode: bicubic;
+        display: block;
+        width: 100%;
+      }
+
+      .text {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+      }
+
+      .text div {
+        background: rgb(255, 255, 255);
+        position: relative;
+        top: -50%;
+      }
+
+    </style>
+  </head>
+  <body>
+  <div id="wrapper">
+    <div id="page">
+      <div id="header">
+        <h1>Vertical alignment</h1>
+      </div>
+      <div id="content">
+
+        <!-- Vertical alginment example code -->
+
+        <div class="columns">
+
+          <div class="column" style="width: 50%;">
+            <div class="image">
+              <img src="http://farm1.static.flickr.com/125/317695178_82ade07837_m.jpg">
+            </div>
+            <div class="text">
+              <div>
+                This text is centered in the middle of the image.<br />
+                Even works with multiple lines!
+              </div>
+            </div>
+          </div>
+
+          <div class="column" style="width: 50%;">
+            <div class="image">
+              <img src="http://farm1.static.flickr.com/125/317695178_82ade07837_m.jpg">
+            </div>
+            <div class="text">
+              <div>
+                Look at this dashing chap!
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Vertical alginment example code ends -->
+
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

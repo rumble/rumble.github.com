@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Text Overflow with Ellipsis</title>
+  <link rel="stylesheet" href="/stylesheets/reset.css" type="text/css" />	
+  <link rel="stylesheet" href="/stylesheets/screen.css" type="text/css" />	
+  <!--[if IE]><link rel="stylesheet" type="text/css" href="/stylesheets/ie.css" /><![endif]-->
+  <style type="text/css">
+  
+.truncate {
+  background: black;
+  color: yellow;
+  padding: 10px;
+}
+
+.wrapper a {
+  color: white;
+}
+
+.truncate {
+  overflow: hidden;
+	text-overflow: ellipsis;
+  white-space: nowrap;
+  -o-text-overflow: ellipsis;
+	-ms-text-overflow: ellipsis;
+	-moz-binding: url('/xml/ellipsis.xml#ellipsis');
+}
+  
+  </style>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="page">
+      <div id="header">
+        <h1>Text Overflow with Ellipsis</h1>
+      </div>  
+      <div id="content">
+        <p>The following text is truncated and ellipses are added to over-running text.</p>
+        <div class="wrapper">
+          <p class="truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor felis quis ligula tempus nec varius ligula tempus. Praesent tellus magna, scelerisque in commodo in, congue eu quam. Cras tempus iaculis tellus ut rutrum. Curabitur quam elit, adipiscing ac vulputate quis, accumsan quis augue. Fusce pretium elit feugiat justo commodo venenatis. Ut dictum venenatis tincidunt. Praesent volutpat odio non risus egestas vulputate suscipit justo pulvinar. Aliquam nec tellus vel purus dapibus pellentesque a consectetur orci.</p>
+        </div>
+        <h2>CSS</h2>
+        <script src="http://gist.github.com/205408.js"></script>
+        <h2>HTML</h2>
+        <script src="http://gist.github.com/205405.js"></script>
+        <h2>XML</h2>
+        <script src="http://gist.github.com/205404.js"></script>
+        <h3>Browser Compatibility</h3>
+        <p>Tested in:</p>
+        <ul>
+          <li>Internet Explorer 6</li>
+          <li>Internet Explorer 7</li>
+          <li>Internet Explorer 8</li>
+          <li>Firefox 3.5</li>
+          <li>Safari 4</li>
+          <li>Google Chrome 3</li>
+          <li>Opera 9</li>
+          <li>Opera 10</li>
+        </ul>
+        <h3>Limitations</h3>
+        <p>Firefox does not currently support the CSS 3 property &quot;text-overflow&quot; so a XUL binding is used to achieve the desired effect in Firefox, introducing the following limitations in that browser:</p>
+        <ul>
+          <li>Truncated text can not be selected.</li>
+          <li>Any whitespace before the start of your text will be represented, introducing a unremovable indentation.</li>
+          <li>Child nodes can only be nested one level deep and must also have the XUL binding applied.</li>
+        </ul>
+        <hr />
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempor felis quis ligula tempus nec varius ligula tempus. Praesent tellus magna, scelerisque in commodo in, congue eu quam. Cras tempus iaculis tellus ut rutrum. Curabitur quam elit, adipiscing ac vulputate quis, accumsan quis augue. Fusce pretium elit feugiat justo commodo venenatis. Ut dictum venenatis tincidunt. Praesent volutpat odio non risus egestas vulputate suscipit justo pulvinar. Aliquam nec tellus vel purus dapibus pellentesque a consectetur orci. Maecenas non sodales dolor. Sed consequat rutrum ullamcorper. Aliquam erat volutpat. In dapibus nibh ut erat viverra euismod. Nullam scelerisque tincidunt purus, et suscipit nisl aliquet sed. Cras in metus augue, vel mattis magna. Quisque at quam nec nibh mollis dignissim eu sit amet ipsum. Mauris placerat elementum lectus nec vehicula.</p>
+        <p>Suspendisse tortor augue, tempor eget adipiscing eget, pulvinar nec ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed sollicitudin rutrum sapien, id tempor nisl suscipit et. Curabitur nec lectus vel leo blandit pulvinar non ut quam. Nam adipiscing odio id ipsum tristique et semper odio consequat. Nunc ultricies congue elit, et tempus neque convallis quis. Etiam auctor accumsan ligula at pharetra. Proin id pharetra nisl. Vestibulum sodales tincidunt odio non sollicitudin. Pellentesque iaculis purus et diam scelerisque ac scelerisque enim sagittis. Curabitur massa arcu, placerat ut tempus et, porttitor id dolor. Cras sed ante sit amet lorem ullamcorper mattis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce id nulla magna, quis fringilla urna. Proin dapibus nisl id dui suscipit at mollis quam semper. Etiam posuere libero et nibh ornare ornare. Maecenas feugiat congue tincidunt. Pellentesque erat velit, egestas at mollis in, semper vel quam.</p>
+      </div>
+    </div>
+    <div id="fork"><a href="http://github.com/rumble/rumble.github.com">Fork on GitHub</a></div>
+  </div>
+</body>
+</html>
