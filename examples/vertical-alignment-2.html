@@ -23,34 +23,15 @@
       }
 
       .text {
-        height: 100%;
         position: absolute;
-        top: 0;
-        width: 100%;
-        _height: expression(this.parentNode.clientHeight+'px');
-      }
-
-      .text .text-1 {
-        display: table;
-        overflow: hidden;
-        height: 100%;
-        #position: relative;
-        width: 100%;
-        _height: expression(this.parentNode.clientHeight+'px');
-      }
-
-      .text .text-2 {
-        display: table-cell;
-        #position: absolute;
-        #top: 50%;
-        vertical-align: middle;
+        top: 50%;
         width: 100%;
       }
 
-      .text .text-3 {
+      .text div {
         background: rgb(255, 255, 255);
-        #position: relative;
-        #top: -50%
+        position: relative;
+        top: -50%;
       }
 
     </style>
@@ -72,13 +53,9 @@
               <img src="http://farm1.static.flickr.com/125/317695178_82ade07837_m.jpg">
             </div>
             <div class="text">
-              <div class="text-1">
-                <div class="text-2">
-                  <div class="text-3">
-                    This text is centered in the middle of the image.<br />
-                    Even works with multiple lines!
-                  </div>
-                </div>
+              <div>
+                This text is centered in the middle of the image.<br />
+                Even works with multiple lines!
               </div>
             </div>
           </div>
@@ -88,12 +65,8 @@
               <img src="http://farm1.static.flickr.com/125/317695178_82ade07837_m.jpg">
             </div>
             <div class="text">
-              <div class="text-1">
-                <div class="text-2">
-                  <div class="text-3">
-                    Look at this dashing chap!
-                  </div>
-                </div>
+              <div>
+                Look at this dashing chap!
               </div>
             </div>
           </div>
